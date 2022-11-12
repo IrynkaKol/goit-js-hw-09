@@ -22,6 +22,7 @@ img {
   display: flex;
   justify-content: center;
   
+  
 }
 
 .field {
@@ -30,6 +31,12 @@ img {
   align-items: center;
   margin-right: 40px;
   margin-top: 40px;
+  border: solid 4px navy;
+  border-radius: 20px;
+  background: orange;
+  padding: 10px;
+  box-shadow: 0 0 0 6px #fff, 0 0 0 12px #888;
+
 }
 
 .value {
