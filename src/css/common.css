@@ -18,14 +18,11 @@ img {
   max-width: 100%;
 }
 
-.input {
-  margin: 0 auto;
-  display: block;
-}
+
 
 .timer {
   display: flex;
-  justify-content: center;
+  
   
   
 }
