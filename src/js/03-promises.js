@@ -19,19 +19,19 @@ const form = document.querySelector('.form')
 form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
-    e.preveantDefault();
+    e.preventDefault();
   let delay = Number(e.currentTarget.delay.value);
   const amount = Number(e.currentTarget.amount.value);
   const step = Number(e.currentTarget.step.value);
   for (let i=1; i <= amount; i += 1) {
     createPromise(i, delay)
   .then(({ position, delay }) => {
-    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-    //Notiflix.Notify.success(`Fulfill promise ${position} in $[delay] ms`)
+    //console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+    Notiflix.Notify.success(`Fulfill promise ${position} in $[delay] ms`)
   })
   .catch(({ position, delay }) => {
-    console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-    //Notiflix.Notify.failure(`Rejected promise ${position} in $[delay] ms`)
+    //console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+    Notiflix.Notify.failure(`Rejected promise ${position} in $[delay] ms`)
   });
   delay += step;
 }
