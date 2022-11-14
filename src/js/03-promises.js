@@ -25,14 +25,22 @@ function onSubmit(e) {
   const step = Number(e.currentTarget.step.value);
   for (let i=1; i <= amount; i += 1) {
     createPromise(i, delay)
-  .then(({ position, delay }) => {
+  .then(onSuccess) 
     //console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-    Notiflix.Notify.success(`Fulfill promise ${position} in $[delay] ms`)
-  })
-  .catch(({ position, delay }) => {
-    //console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-    Notiflix.Notify.failure(`Rejected promise ${position} in $[delay] ms`)
-  });
+    //Notiflix.Notify.success(`Fulfill promise ${position} in $[delay] ms`)
+  
+  .catch(onError) 
+  //console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+    //Notiflix.Notify.failure(`Rejected promise ${position} in $[delay] ms`)
+  
   delay += step;
 }
+}
+
+function onSuccess ({ position, delay })  {
+  Notiflix.Notify.success(`Fulfill promise ${position} in $[delay] ms`)
+}
+
+function onError ({ position, delay })  {
+  Notiflix.Notify.failure(`Rejected promise ${position} in $[delay] ms`)
 }
