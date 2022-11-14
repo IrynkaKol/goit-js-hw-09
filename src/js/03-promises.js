@@ -15,6 +15,7 @@ function createPromise(position, delay) {
   });
   return promise;
 }
+
 const form = document.querySelector('.form')
 form.addEventListener('submit', onSubmit);
 
@@ -28,12 +29,10 @@ function onSubmit(e) {
   .then(onSuccess) 
     //console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
     //Notiflix.Notify.success(`Fulfill promise ${position} in $[delay] ms`)
-  
   .catch(onError) 
   //console.log(`❌ Rejected promise ${position} in ${delay}ms`);
     //Notiflix.Notify.failure(`Rejected promise ${position} in $[delay] ms`)
-  
-  delay += step;
+    delay += step;
 }
 }
 
